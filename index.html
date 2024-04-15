@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.67">
 <title>Круговая анимация загрузки</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 <style>
@@ -13,13 +12,13 @@
         align-items: center;
         justify-content: center;
         height: 100vh;
-        background-image: url('fon.jpg'), linear-gradient(90deg, skyblue 0%, steelblue 100%);
+        background-image: url('fon.jpg'), linear-gradient(90deg, skyblue 0%, steelblue 100%); /* Добавление градиента поверх фона */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        font-family: "Luckiest Guy", cursive;
-        -webkit-font-smoothing: antialiased;
-        overflow: hidden;
+        font-family: "Luckiest Guy", cursive; /* Добавление нового шрифта */
+        -webkit-font-smoothing: antialiased; /* Улучшение рендеринга шрифта */
+        overflow: hidden; /* Новое свойство, если нужно скрыть скролл */
     }
     #photo-container {
         margin-top: 0;
@@ -65,7 +64,6 @@
         transform: rotate(-90deg);
         transform-origin: 50% 50%;
     }
-
     @keyframes loadProgress {
         from {
             stroke-dashoffset: 251;
@@ -74,7 +72,6 @@
             stroke-dashoffset: 0;
         }
     }
-
     @keyframes colorChange {
         0% { stroke: red; }
         33% { stroke: yellow; }
@@ -103,7 +100,6 @@
     font-weight: normal;
     font-style: normal;
     }
-
     #trap-count-label {
         margin: 20px 0;
         font-size: 50px;
@@ -112,7 +108,6 @@
         font-family: 'Intro', sans-serif; /* Fallback to sans-serif if Intro is not available */
         font-weight: bold; /* Делаем текст жирным */
     }
-
    #counter-container {
         display: flex;
         align-items: center;
@@ -120,7 +115,6 @@
         width: 400px; /* Фиксированная ширина контейнера */
         margin: 20px auto; /* Центрирование контейнера */
     }
-
     .count-display {
         width: 120px; /* Фиксированная ширина для блока с числом */
         text-align: center; /* Центрирование текста внутри блока */
@@ -129,7 +123,6 @@
         margin: 0 20px; /* Запас между иконками и числом */
         font-weight: bold; /* Делаем текст жирным */
     }
-
     .icon {
         cursor: pointer; /* Указатель при наведении */
         width: 100px; /* Фиксированная ширина для иконок */
@@ -199,7 +192,6 @@
         width: 100%;
         text-align: center;
     }
-
     #loading-text span {
         display: inline-block;
         animation: bounce 0.3s ease infinite alternate;
@@ -209,7 +201,6 @@
           0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent,
           0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
     }
-
     #loading-text span:nth-child(1) { animation-delay: 0s; }
     #loading-text span:nth-child(2) { animation-delay: 0.1s; }
     #loading-text span:nth-child(3) { animation-delay: 0.2s; }
@@ -217,7 +208,6 @@
     #loading-text span:nth-child(5) { animation-delay: 0.4s; }
     #loading-text span:nth-child(6) { animation-delay: 0.5s; }
     #loading-text span:nth-child(7) { animation-delay: 0.6s; }
-
     @keyframes bounce {
         0% {
             transform: translateY(0px);
@@ -241,14 +231,14 @@
         background: linear-gradient(90deg, skyblue 0%, steelblue 100%); /* Применение голубого градиентного фона */
         color: white;
         padding: 40px; /* Увеличение отступов */
-        min-width: 300px; /* Минимальная ширина */
-        min-height: 50px; /* Минимальная высота */
+        min-width: 320px; /* Минимальная ширина */
+        min-height: 70px; /* Минимальная высота */
         border-radius: 20px; /* Увеличенный радиус границ */
         z-index: 100;
         text-align: center;
         font-family: 'Intro', sans-serif; /* Установка шрифта Intro */
         font-size: 32px; /* Увеличение размера шрифта */
-        box-shadow: 0 0 30px 10px orange;
+        box-shadow: 0 0 30px 10px orange; 
     }
     #overlay {
         position: fixed;
@@ -259,15 +249,9 @@
         background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный цвет */
         z-index: 99; /* Убедитесь, что затемнение находится под popup, но над остальным содержимым */
     }
-
-
-
-
-
 </style>
 </head>
 <body>
-
 <div id="photo-container">
      <h1 id="loading-text">
         <span>N</span><span>$</span><span>G</span><span>O</span><span>C</span><span>I</span><span>O</span>
@@ -278,10 +262,21 @@
     <img id="loaded-image" src="" alt="Loaded Image">
 </div>
 <div id="overlay" style="display:none;"></div>
-<div id="popup">Игра #<span id="game-number"></span><br>Шанс - <span id="chance"></span>%</div>
+<div id="popup">Игра №<span id="game-number"></span><br>Шанс - <span id="chance"></span>%</div>
 <div id="trap-count-label">
      КОЛ-ВО ЛОВУШЕК
 </div>
+
+    
+          
+            
+    
+
+          
+          Expand Down
+    
+    
+  
 <div id="counter-container">
     <!-- Иконка '+' для увеличения количества -->
     <img class="control-button icon" src="minus.png" onclick="decrement()" alt="Minus">
@@ -289,26 +284,22 @@
     <!-- Исправлено: Иконка '+' теперь отвечает за функцию 'decrement()' -->
     <img class="control-button icon" src="plus.png" onclick="increment()" alt="Plus">
 </div>
-
 <button class="control-button photo-button" onclick="loadRandomPhoto()">Получить Сигнал</button>
 <script>
 let count = 1;
 const countElement = document.getElementById('count');
-
 function increment() {
     if (count < 7) {
         count += 2;
         countElement.textContent = count;
     }
 }
-
 function decrement() {
     if (count > 1) {
         count -= 2;
         countElement.textContent = count;
     }
 }
-
 function showPopup() {
     const popup = document.getElementById('popup');
     const overlay = document.getElementById('overlay');
@@ -316,41 +307,33 @@ function showPopup() {
     const chance = document.getElementById('chance');
     gameNumber.textContent = Math.floor(Math.random() * 90000) + 10000; // Случайное число из 5 цифр
     chance.textContent = Math.floor(Math.random() * 21) + 70; // Случайное число от 70 до 90
-
     overlay.style.display = 'block'; // Показать затемняющий фон
     popup.style.display = 'block'; // Показать всплывающее окно
-
     setTimeout(() => {
         popup.style.display = 'none';
         overlay.style.display = 'none'; // Скрыть затемняющий фон после закрытия popup
     }, 4000); // Автоматическое закрытие через 5 секунд
 }
-
-
 function loadRandomPhoto() {
     const loadingText = document.getElementById('loading-text'); // Получение элемента текста загрузки
     const progressBar = document.getElementById('progressbar');
     const loadingBar = document.getElementById('loading');
     const loadedImage = document.getElementById('loaded-image');
     let progress = 0;
-
     // Скрыть фотографию перед началом новой загрузки
     loadedImage.style.display = 'none';
     progressBar.style.display = 'block';  // Показать линейный индикатор загрузки
     loadingText.style.display = 'block';  // Показать текст загрузки
     loadingBar.style.width = '0%';        // Сброс ширины индикатора загрузки
-
     const photos = [
         ['results/photo1.jpg', 'results/photo2.jpg', 'results/photo3.jpg', 'results/photo4.jpg', 'results/photo5.jpg', 'results/photo6.jpg', 'results/photo7.jpg', 'results/photo8.jpg', 'results/photo9.jpg', 'results/photo10.jpg', 'results/photo11.jpg', 'results/photo12.jpg', 'results/photo13.jpg', 'results/photo14.jpg', 'results/photo15.jpg', 'results/photo16.jpg', 'results/photo17.jpg', 'results/photo18.jpg', 'results/photo19.jpg', 'results/photo20.jpg', 'results/photo21.jpg', 'results/photo22.jpg', 'results/photo23.jpg', 'results/photo24.jpg', 'results/photo25.jpg', 'results/photo26.jpg', 'results/photo27.jpg', 'results/photo28.jpg', 'results/photo29.jpg', 'results/photo30.jpg'],
         ['results3/photo1.jpg', 'results3/photo2.jpg', 'results3/photo3.jpg', 'results3/photo4.jpg', 'results3/photo5.jpg', 'results3/photo6.jpg', 'results3/photo7.jpg', 'results3/photo8.jpg', 'results3/photo9.jpg', 'results3/photo10.jpg', 'results3/photo11.jpg', 'results3/photo12.jpg', 'results3/photo13.jpg', 'results3/photo14.jpg', 'results3/photo15.jpg', 'results3/photo16.jpg', 'results3/photo17.jpg', 'results3/photo18.jpg', 'results3/photo19.jpg', 'results3/photo20.jpg', 'results3/photo21.jpg', 'results3/photo22.jpg', 'results3/photo23.jpg', 'results3/photo24.jpg', 'results3/photo25.jpg', 'results3/photo26.jpg', 'results3/photo27.jpg', 'results3/photo28.jpg', 'results3/photo29.jpg', 'results3/photo30.jpg', 'results3/photo31.jpg', 'results3/photo32.jpg', 'results3/photo33.jpg', 'results3/photo34.jpg', 'results3/photo35.jpg', 'results3/photo36.jpg', 'results3/photo37.jpg', 'results3/photo38.jpg', 'results3/photo39.jpg', 'results3/photo40.jpg', 'results3/photo41.jpg', 'results3/photo42.jpg', 'results3/photo43.jpg', 'results3/photo44.jpg', 'results3/photo45.jpg', 'results3/photo46.jpg', 'results3/photo47.jpg', 'results3/photo48.jpg', 'results3/photo49.jpg', 'results3/photo50.jpg', 'results3/photo51.jpg', 'results3/photo52.jpg', 'results3/photo53.jpg', 'results3/photo54.jpg', 'results3/photo55.jpg', 'results3/photo56.jpg', 'results3/photo57.jpg', 'results3/photo58.jpg', 'results3/photo59.jpg', 'results3/photo60.jpg', 'results3/photo61.jpg', 'results3/photo62.jpg', 'results3/photo63.jpg', 'results3/photo64.jpg', 'results3/photo65.jpg', 'results3/photo66.jpg', 'results3/photo67.jpg', 'results3/photo68.jpg', 'results3/photo69.jpg', 'results3/photo70.jpg', 'results3/photo71.jpg', 'results3/photo72.jpg', 'results3/photo73.jpg', 'results3/photo74.jpg', 'results3/photo75.jpg', 'results3/photo76.jpg', 'results3/photo77.jpg', 'results3/photo78.jpg', 'results3/photo79.jpg', 'results3/photo80.jpg', 'results3/photo81.jpg', 'results3/photo82.jpg', 'results3/photo83.jpg'],
         ['results5/photo1.jpg', 'results5/photo2.jpg', 'results5/photo3.jpg', 'results5/photo4.jpg', 'results5/photo5.jpg', 'results5/photo6.jpg', 'results5/photo7.jpg', 'results5/photo8.jpg', 'results5/photo9.jpg', 'results5/photo10.jpg', 'results5/photo11.jpg', 'results5/photo12.jpg', 'results5/photo13.jpg', 'results5/photo14.jpg', 'results5/photo15.jpg', 'results5/photo16.jpg', 'results5/photo17.jpg', 'results5/photo18.jpg', 'results5/photo19.jpg', 'results5/photo20.jpg', 'results5/photo21.jpg', 'results5/photo22.jpg', 'results5/photo23.jpg', 'results5/photo24.jpg', 'results5/photo25.jpg', 'results5/photo26.jpg', 'results5/photo27.jpg', 'results5/photo28.jpg', 'results5/photo29.jpg', 'results5/photo30.jpg'],
         ['results7/photo1.jpg', 'results7/photo2.jpg', 'results7/photo3.jpg', 'results7/photo4.jpg', 'results7/photo5.jpg', 'results7/photo6.jpg', 'results7/photo7.jpg', 'results7/photo8.jpg', 'results7/photo9.jpg', 'results7/photo10.jpg', 'results7/photo11.jpg', 'results7/photo12.jpg', 'results7/photo13.jpg', 'results7/photo14.jpg', 'results7/photo15.jpg', 'results7/photo16.jpg', 'results7/photo17.jpg', 'results7/photo18.jpg', 'results7/photo19.jpg', 'results7/photo20.jpg', 'results7/photo21.jpg', 'results7/photo22.jpg', 'results7/photo23.jpg', 'results7/photo24.jpg', 'results7/photo25.jpg', 'results7/photo26.jpg', 'results7/photo27.jpg', 'results7/photo28.jpg', 'results7/photo29.jpg', 'results7/photo30.jpg']
     ];
-
     const interval = setInterval(() => {
         progress++;
         loadingBar.style.width = `${progress}%`; // Обновление ширины индикатора загрузки
-
         if (progress >= 100) {
             clearInterval(interval);
             setTimeout(() => {
@@ -368,6 +351,5 @@ function loadRandomPhoto() {
     }, 25);
 }
 </script>
-
 </body>
 </html>
